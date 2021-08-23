@@ -28,4 +28,6 @@ void TestCircularLinkList()
     InitCircularLinkList(clList, dataArray, sizeof(dataArray)/sizeof(dataArray[0]));
     DeleteCircularLinkList(clList, 4);
     PrintCircularLinkList(clList);
+    printf("\n从第5个元素遍历：\n");
+    PrintCircularLinkListByNode(clList, GetCircularLinkListNode(clList, dataArray[4]));
 }

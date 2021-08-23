@@ -1,4 +1,5 @@
 #include "CircularLinkList.h"
+#include <string.h>
 
 void InsertCircularLinkList(CircularLinkList *circularLinkList, int pos, ElementType element)
 {
@@ -105,4 +106,39 @@ void PrintCircularLinkList(CircularLinkList *circularLinkList)
         printf("%d\t%s\n", node->data.id, node->data.name);
         node = node->next;
     }      
+}
+
+CircularNode *GetCircularLinkListNode(CircularLinkList *clList, ElementType element)
+{
+    CircularNode *node = clList->next;
+    if(!node)
+        return NULL;
+    //不用循环变量i来遍历
+    do
+    {
+        if(element.id == node->data.id && !strcmp(element.name, node->data.name))
+        {
+            return node;
+        }
+        node = node->next;
+    } while (node != clList->next);
+    
+    return NULL;
+}
+
+void PrintCircularLinkListByNode(CircularLinkList *clList, CircularNode *node)
+{
+    if(!clList->next)
+    {
+        printf("链表长度为空，没有内容可以打印！\n");
+        return;
+    }
+    // 记录初始的node节点
+    CircularNode *oriNode = node;
+    do
+    {
+        printf("%d\t%s\n", node->data.id, node->data.name);
+        node = node->next;
+    } while (node != oriNode);
+    
 }

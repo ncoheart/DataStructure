@@ -31,4 +31,10 @@ ElementType DeleteCircularLinkList(CircularLinkList *clList, int pos);
 
 void PrintCircularLinkList(CircularLinkList *circularLinkList);
 
+/* 根据元素内容返回对应的结点指针 */
+CircularNode *GetCircularLinkListNode(CircularLinkList *clList, ElementType element);
+
+/* 根据给出的某个节点，遍历链表的每个元素 */
+void PrintCircularLinkListByNode(CircularLinkList *clList, CircularNode *node);
+
 #endif
